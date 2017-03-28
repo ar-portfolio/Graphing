@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Graphing Calc</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="../styles/site.css"/>
+    <link rel="stylesheet" href="../styles/graph.css"/>
+</head>
+<body>
+    <div class="container">
+        
+        <nav id="topNavbar" class="navbar navbar-fixed-top">
+            <a class="navbar-brand" href="../index.html">Home</a>
+            <ul class="nav navbar-nav">
+                <li><a href="graph.html">Graph Demo</a></li>
+                <li><a href="graphModuleApi.html">Graph Module API</a></li>
+            </ul>
+        </nav>
+        
+        
+        <div id="functionList" class="col-md-3 well">
+            <h2 class="text-center">Function List</h2>
+            <ul></ul>
+        </div>
+        <div id="graphDiv" class="col-md-9">
+            <div id="calc1" class="text-center calc">
+                <div id="calcDiv1" class="calcDiv text-center"></div>
+                <div class="buttonDiv">
+                    <button id="zoomOut1" class="btn btn-default">Zoom Out</button>
+                    <button id="clear1" class="btn btn-info">Clear</button>
+                    <button id="zoomIn1" class="btn btn-default">Zoom In</button>
+                </div>
+                <div class="smallerButtonDiv">
+                    <button id="zoomOutX1" class="btn btn-default">X</button>
+                    <button id="zoomOutY1" class="btn btn-default">Y</button>
+                    <button id="zoomInX1" class="btn btn-default">X</button>
+                    <button id="zoomInY1" class="btn btn-default">Y</button>
+                </div>
+            </div>
+            <div id="calc2" class="text-center calc">
+                <div id="calcDiv2" class="calcDiv text-center"></div>
+                <div class="buttonDiv">
+                    <button id="zoomOut2" class="btn btn-default">Zoom Out</button>
+                    <button id="clear2" class="btn btn-danger">Close</button>
+                    <button id="zoomIn2" class="btn btn-default">Zoom In</button>
+                </div>
+                <div class="smallerButtonDiv">
+                    <button id="zoomOutX2" class="btn btn-default">X</button>
+                    <button id="zoomOutY2" class="btn btn-default">Y</button>
+                    <button id="zoomInX2" class="btn btn-default">X</button>
+                    <button id="zoomInY2" class="btn btn-default">Y</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h1 class="modal-titlen text-center" id="myModalLabel"><em>f</em> (x) = </h1>
+      </div>
+      
+    <form id="term" class="form-horizontal">
+        <div class="modal-body">
+            <div class="form-group">
+                <label class="control-label col-md-2 col-md-offset-2 text-right">Coefficient: </label> 
+                <div class="col-md-4">
+                    <input id="coefficient" type="number"/>
+                </div>
+            </div>
+            
+            
+            <div class="form-group">
+                <label class="control-label col-md-2 col-md-offset-2 text-right">Exponent: </label> 
+                <div class="col-md-4">
+                    <input id="exponent" type="number"/>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary col-md-2 col-md-offset-5">Graph</button>
+            </div>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+    </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+    <script src="../scripts/graphModule.js"></script>
+    <script src="../scripts/graph.js"></script>
+</body>
+</html>

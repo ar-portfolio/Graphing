@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Graphing Module API</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="../styles/site.css"/>
+    <link rel="stylesheet" href="../styles/homeApi.css"/>
+</head>
+<body>
+    <div class="container">
+        <nav id="topNavbar" class="navbar navbar-fixed-top">
+            <a class="navbar-brand" href="../index.html">Home</a>
+            <ul class="nav navbar-nav">
+                <li><a href="graph.html">Graph Demo</a></li>
+                <li><a href="graphModuleApi.html">Graph Module API</a></li>
+            </ul>
+        </nav>
+
+        <div id="navigationDiv" class="home col-md-3">
+            <div id="APInavigation" class="well">    
+            <ul>
+                <li><a href="#introduction">Introduction</a></li>
+                <li><h3><em>Methods:</em></h3></li>
+                <li><a href="#initialize">initialize()</a></li>
+                <li><a href="#setSize">setSize()</a></li>
+                <li><a href="#setBackgroundColor">setBackgroundColor()</a></li>
+                <li><a href="#appendGraph">appendGraph()</a></li>
+                <li><a href="#drawGraphingSquare">drawGraphingSquare()</a></li>
+                <li><a href="#graphFunc">graphFunc()</a></li>
+                <li><a href="#zoomIn">zoomIn()</a></li>
+                <li><a href="#zoomOut">zoomOut()</a></li>
+                <li><a href="#zoomInX">zoomInX()</a></li>
+                <li><a href="#zoomOutX">zoomOutX()</a></li>
+                <li><a href="#zoomInY">zoomInY()</a></li>
+                <li><a href="#zoomOutY">zoomOutY()</a></li>
+                <li><a href="#examples">Examples</a></li>
+           </ul>
+            </div>
+        </div>
+        
+        <div class="home col-md-7">
+            <h2 class="heading"><span id="introduction"></span>Introduction</h2>
+            <p>This page is intended for developers that are familiar with JavaScript.</p>
+            <p>
+                We are pleased to release the latest version of <em><strong>myModules.graphModule</em></strong>, a fully equipped graphing tool that offers seamless implementation and a concise library of methods.  
+            </p>
+            <p>
+                The tool consists of the graphing square, which can
+                be added to any DOM element, with an adjustable height/width and background color.  The scales of the axes are mutually exclusive (the distance between two ticks on one axis can be different than on the other axis) so that you can zoom 
+                in and out on one axis at a time, or both axes simultaneously.
+            </p>
+            <p>
+                Below is a list of methods that allow you to easily interact with the graph.  All methods are chainable for cleaner
+                coding.  The <em>graphFunc()</em> method is where the actual graphing takes place, and we will explain how it works
+                along with some examples.
+            </p>
+            <p>
+                To begin, load the graphModule.js script, and create a graphing object:
+            </p>
+            <p class="code">
+                <code class="well well-lg">
+                    var graph = myModules.graphModule();
+                </code>
+            </p>
+            <h3 class="headingSmall"><span id="initialize"></span>graph.<em>initialize()</em></h3>
+            <p>
+                Call this method first.  The default shape of the graph is a square whose sides are 300px in length.  The default 
+                background-color is white.
+            </p>
+
+            <h3 class="headingSmall"><span id="setSize"></span>graph.<em>setSize(x, y)</em></h3>
+            <p>
+                After initializing the graph, use this method to manually set the pixel size.  Only the first paramater is required for a 
+                square.  For a rectangle, the first paramater is the width of the graph - the length of the X-axis.  The second
+                paramater is the height of the graph - the length of the Y-axis.
+            </p>
+            <h3 class="headingSmall"><span id="setBackgroundColor"></span>graph.<em>setBackgroundColor(color)</em></h3>
+            <p>
+                After initializing the graph, use this method to set the background-color of the graph.  The required paramater
+                must be a valid color.
+            </p>
+            <h3 class="headingSmall"><span id="appendGraph"></span>graph.<em>appendGraph(element)</em></h3>
+            <p>
+                Bring the graph into your page with this method.  The required parameter should be a DOM element that will become
+                the parent element of the graph element.
+            </p>
+            <p class="note">
+                NOTE:  If using jQuery, you must pass the actual DOM element, not the jQuery wrapper object.
+            </p>
+            <p class="code well well-lg">
+                <code>
+                    var graphDiv = $('#graphDiv');
+                    graph.appendGraph(graphDiv[0]);
+                </code>
+            </p>
+            <h3 class="headingSmall"><span id="drawGraphingSquare"></span>graph.<em>drawGraphingSquare()</em></h3>
+            <p>
+                Use this method to draw the axes along with scaled tick marks.  The initial distance between tick marks is 10 pixels,
+                drawing 15 marks from the origin to the border of the graph in all four directions.
+            </p>
+            <p>
+                Call this method to reset the graph.  It is not necessary to reset the graph before calling the graph.<em>graphFunc()</em>
+                method - the graph.<em>graphFunc()</em> method also calls the graph.<em>drawGraphingSquare()</em> method.  Only use this 
+                method for removing a previously graphed function, and to reset the distance between tick marks to the initial setting.
+            <h3 class="headingSmall"><span id="graphFunc"></span>graph.<em>graphFunc(getFuncY(x))</em></h3>
+            <p>
+                This method graphs the algebraic equation.  The parameter must be a function that takes an <em>x</em>-value on the graph
+                and performs the math dictated by the equation, returning the calculated result as the <em>y</em>-value.  For example,
+                if the equation is <em>x-squared</em>, the function should return the passed-in value multiplied by itself. 
+            </p>
+            <p class="code well well-lg">
+                <code>
+                    graph.graphFunc(function(x) {<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;return x * x;<br/>
+                    });
+                </code>
+            </p>
+            <p>        
+                The graphFunc method will invoke this function with each <em>x</em>-value on the graph and determine the equation's 
+                <em>y</em>-value at that point to continue drawing the line across the graph.
+            </p>
+            <p class="note">
+                NOTE:  Particularly with longer equations, pay attention to the order of operations for the intended result.  For
+                example, the equation "<em>f</em> (x) = 3x^2 + 1 / -2x^2 - 1" should be written as follows:
+            </p>
+            <p class="code well well-lg">
+                <code>
+                    graph.graphFunc(function(x) {<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;return ((3 * (x * x)) + 1) / ((-2 * (x * x)) - 1);<br/>
+                    });
+                </code>
+            </p>
+            <h3 class="headingSmall"><span id="zoomIn"></span>graph.<em>zoomIn()</em></h3>
+            <p>
+                To examine the graph more precisely, use this method to
+                zoom in on the graph, increasing the distance between tick marks of both the X-axis and Y-axis.  The graph will always zoom to a scale that
+                allows the origin to remain in the middle and an equal number of tick marks in all four directions.  Therefore, the
+                closest possible view of the graph is when the space between tick marks is equal to half the size of the graph.
+            </p>
+            <h3 class="headingSmall"><span id="zoomOut"></span>graph.<em>zoomOut()</em></h3>
+            <p>
+                For a better idea of how the characteristics of an algebraic equation play out over a larger graph, use this method to
+                reduce the distance between tick marks of both the X-axis and Y-axis, invoking the developer-provided function to calculate smaller 
+                and larger values for <em>x</em> on the graph.  Here too, the maximum size of the graph is determined by an equal number of tick marks in all directions. 
+                When the space between tick marks gets close to zero pixels, the graph will stop "expanding".
+            </p>
+            <h3 class="headingSmall"><span id="zoomInX"></span>graph.<em>zoomInX()</em></h3>
+            <p>
+                Zoom in on only the X-axis to have the line change shapes.  For example, if <em>y</em> equals <em>x squared</em>, when
+                <em>x</em> is equal to <em>one</em>, <em>y</em> is equal to <em>one</em>.  If the Y-axis remains the same while the X-axis increases the
+                distance between its tick marks, the line on the graph flattens out as the point on the X-axis that represents the number <em>one</em> 
+                moves further away from the origin.
+            </p>
+            <h3 class="headingSmall"><span id="zoomOutX"></span>graph.<em>zoomOutX()</em></h3>
+            <p>
+                Zoom out on only the X-axis.  This has the opposite effect of the graph.<em>zoomInX()</em> method.  As the distance between 
+                the tick marks of the X-axis decreases, the shape on the graph becomes more narrow as each <em>x</em>-value moves closer 
+                to the origin. 
+            </p>
+            <h3 class="headingSmall"><span id="zoomInY"></span>graph.<em>zoomInY()</em></h3>
+            <p>
+                This zoom method works the same way as the graph.<em>zoomInX()</em> method, only with the Y-axis instead.  Increasing
+                the space between tick marks on the Y-axis stretches the line on the graph as it draws closer to the origin.
+            </p>
+            <h3 class="headingSmall"><span id="zoomOutY"></span>graph.<em>zoomOutY()</em></h3>
+            <p>
+                Zoom out on only the Y-axis.  This has the opposite effect of the graph.<em>zoomInY()</em> method
+            </p>
+            <h2 class="heading"><span id="examples"></span>Examples</h2>
+            <p>
+                The following is an example of setting the size of the graph, the background-color, and then drawing the axes:
+            </p>
+            <p class="code well well-lg">
+                <code>
+                    graph.initialize().setSize(400).setBackgroundColor('grey')<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;.appendGraph(graphDiv[0]).drawGraphingSquare();
+                </code>
+            </p>
+            <p>
+                The following is an example of how to use the graph with a pre-defined <em>userFunction</em>, zooming in on the entire
+                graph, and then only on the X-axis: 
+            </p>
+            <p class="code well well-lg">
+                <code>
+                    graph.initialize().appendGraph(graphDiv[0])<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;.graphFunc(userFunction).zoomIn().zoomInX();
+                </code>
+            </p>
+            <p id="filler"></p>
+       </div>
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+</body>
+</html>

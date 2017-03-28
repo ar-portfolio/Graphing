@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Graphing Home</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/site.css"/>
+    <link rel="stylesheet" href="styles/homeApi.css"/>
+</head>
+<body>
+    <div class="container">
+        
+        <nav id="topNavbar" class="navbar navbar-fixed-top">
+            <a class="navbar-brand" href="index.html">Home</a>
+            <ul class="nav navbar-nav">
+                <li><a href="views/graph.html">Graph Demo</a></li>
+                <li><a href="views/graphModuleApi.html">Graph Module API</a></li>
+            </ul>
+        </nav>
+
+        <div id="navigationDiv" class="home col-md-2">
+            <div id="navigation">    
+            <ul>
+                <li><a href="#introduction">Introduction</a></li>
+                <li><a href="#graphing101">Graphing 101</a></li>
+                <li><a href="#functions">Functions</a></li>
+                <li><a href="#functionNotation">Function Notation</a></li>
+                <li><a href="#slope">Slope</a></li>
+                <li><a href="#derivative">Derivative</a></li>
+            </ul>
+            </div>
+        </div>
+        
+        <div class="home col-md-8">
+            <h2 class="heading"><span id="introduction"></span>Introduction</h2>
+            <p>The goals of this site are as follows:
+            <ul>
+                <li>Illustrate the capabilities of our graphing tool in a small but powerful app </li>
+                <li>Include a complete API with detailed instructions on how to implement the tool</li>
+            </ul>
+            </p>
+            <p>
+                If you are comfortable with graphing and have perhaps dabbled in a bit of Calculus I, then feel free to continue on to 
+                the rest of the site.  But if it has been some time since you were forced to learn this stuff, below is a brief overview 
+                of mathematical functions and how they are graphed.
+            </p>
+            <h2 class="heading"><span id="graphing101"></span>Graphing 101</h2>
+            <p>A <em>graph</em> is a drawing that illustrates an algebraic operation or equation in a two-dimensional plane.  A graph allows
+                you to see the characteristics of an algebraic statement immediately.
+            </p>
+            <p>To graph an algebraic equation, we use a <em>coordinate plane</em> that features two intersecting <em>axes</em> - two 
+                perpendicular lines that cross at a point called the <em>origin</em>.  The horizontal line is called the X-axis, and the 
+                vertical line is called the Y-axis.  The scales on the axes are shown with little tick marks.  Any given point on the 
+                graph is identified by an ordered pair of <em>coordinates</em>.  The <em>x</em>-coordinate indicates how far and in which direction
+                the point is from the origin along the X-axis, and the <em>y</em>-coordinate indicates how far from the origin and in
+                which direction the point is along the Y-axis.  Coordinates that lie to the right and above the origin are positive, while
+                those to the left and below the origin are negative.  A line on a graph is a collection of many points, each one identified
+                by a value for <em>x</em> and a value for <em>y</em>.
+            </p>
+            <h2 class="heading"><span id="functions"></span>Functions</h2>
+            <p>Not to be confused with software functions, a mathematical function is a relationship between two variables that
+                features exactly one output value for every input value - in other words, exactly one <em>y</em>-value for every 
+                <em>x</em>-value inserted into the function equation.  At every <em>x</em>-value on the graph, the function calculates
+                one <em>y</em>-value, drawing a line that moves across the graph as the <em>x</em>-values move from negative to
+                positive (left to right).  
+            </p>
+            
+            <h2 class="heading"><span id="functionNotation"></span>Function Notation</h2>
+            <p>
+                The "<em>f (x)</em>" that is found on the left side of the equals sign, pronounced "F of X", tells us that we  
+                should replace the <em>x</em> in the equation on the right side of the equals sign with some value, and then calculate 
+                the equation with that value.  The result is the <em>y</em>-value at that <em>x</em>-value on the graph. To indicate an exponent, we use the <em>carrot</em> symbol (shift + 6).
+            </p>
+            <p>
+                For example, suppose we have a function such as <em>f (x) = x^2</em>.  If we replace the <em>x</em> in the equation 
+                with a value of three, we can rewrite the function like so: <em> f (3) = 3^2</em>.  So when <em>x</em> is three, <em>y</em> is nine.  With every value of <em>x</em> on the graph, the function calculates a value for <em>y</em>.
+            </p>
+            <h2 class="heading"><span id="slope"></span>Slope</h2>
+            <p>
+                The <em>slope</em> is a number that represents the steepness and direction of a line.  The greater the numerical value 
+                of the slope, the steeper the line is.  If a line's slope is positive, the line rises from left to right.  If the 
+                slope is negative, the line falls from left to right.
+            </p>
+            <h2 class="heading"><span id="derivative"></span>Derivative</h2>
+            <p>
+                The <em>derivative</em> is an independent function that measures the slope of another function.  If the first function 
+                is written as <em>f (x) = ...</em>, its derivative is written as <em>f ' = ...</em> (pronounced "F prime").  
+                 Suppose we have a function whose shape on the graph is a parabola (U-shape).  Initially, the slope 
+                is negative as the line falls from left to right.  As the line begins to turn, the slope gets closer to zero.  
+                When the line is exactly flat, the slope is precisely zero, and when the line begins to turn upwards, the slope 
+                turns positive.  
+            </p>
+            <p>
+                When the derivative is graphed, the <em>y</em>-value represents the slope of the first graph at each value for <em>x</em>.  
+                When the <em>y</em>-value of the derivative graph is negative (<em>below</em> the X-axis), it means the slope of the first function is negative 
+                at that <em>x</em>-value on its graph.  When the <em>y</em>-value is positive (<em>above</em> the X-axis), it means the slope of 
+                the first function is positive at that <em>x</em>-value.  And when the <em>y</em>-value is exactly
+                zero, it means the line on the first graph is flat at that <em>x</em>-value.  Also, a greater 
+                absolute-value of <em>y</em> (moving away from the origin) represents a steeper slope.  Therefore, the shape of the derivative graph can measure the rate at which the 
+                slope of the first function is changing.  
+            </p>
+            <p id="fillerHome"></p>
+            
+    </div>
+         
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+</body>
+</html>

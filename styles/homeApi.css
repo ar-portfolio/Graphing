@@ -1,0 +1,64 @@
+html {
+    height: 100%;
+    
+}
+
+.home {
+    font-size: large;
+    margin-top: 4em;
+
+}
+
+#navigation ul, #APInavigation ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.code {
+    margin: 20px;
+    padding: 20px;
+
+}
+
+.note {
+    margin: 20px;
+}
+    
+
+#navigation {
+    position: fixed;
+    top: 100px;
+    left: 105px;
+    border-right: 1px solid blue;
+    width: 161px;
+}
+
+#APInavigation {
+    position: fixed;
+    top: 100px;
+    left: 105px;
+    width: 250px;
+    height: 400px;
+    overflow: auto;
+    color: cornflowerblue;
+
+}
+
+
+#navigation ul li, #APInavigation ul li {
+    margin-left: 0;
+    margin-bottom: 20px;    
+}
+
+#navigationDiv {
+    position: relative;
+}
+
+#filler {
+    height: 225px;
+}
+
+#fillerHome {
+    height: 235px;
+}
+ 

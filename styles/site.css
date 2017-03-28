@@ -1,0 +1,38 @@
+html {
+    height: 100%;
+    background-color: cornflowerblue;
+    
+}
+
+body {
+    width: 90%;
+    margin: auto;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;   
+}
+
+#topNavbar {
+    border-bottom: 3px solid blue;
+    left: 7%;
+    right: 7%;
+    background-color: white;
+}
+
+.heading, .headingSmall {
+    color: cornflowerblue;
+    position: relative;
+}
+
+.headingSmall {
+    margin-top: 25px;
+}
+
+.heading span { 
+    position: absolute; 
+    top: -2em;
+}
+
+.headingSmall span { 
+    position: absolute; 
+    top: -60px;
+}

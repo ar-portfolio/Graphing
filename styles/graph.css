@@ -1,0 +1,86 @@
+body {
+    height: 100%;
+}
+
+.calc canvas {
+    border:3px solid #d3d3d3;
+    background-color: white;
+    border-radius: 5px;
+}
+
+#functionList ul {
+    list-style-type: none;
+    
+}
+
+#functionList li {
+    margin-left: -40px;
+    cursor: pointer;
+    margin-top: 2em;
+    border: 5px solid cornflowerblue;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 10px 10px 5px darkblue;
+    color: darkblue;
+}
+
+#functionList {
+    background-color: grey;
+    overflow: auto;
+    height: 530px;
+    padding-top: 0;
+    color: whitesmoke;
+   
+}
+
+#functionList, #graphDiv {
+    margin-top: 5em; 
+}
+
+
+
+.calc {
+    display: inline-block;
+    width: 375px;
+    height: 530px;
+    margin-left: 15px;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    vertical-align: middle;
+    box-shadow: 15px 10px 10px darkslategrey;
+}
+
+.calcDiv {
+    width: 340px;
+    height: 340px;
+    margin-top: 2em;
+    padding-top: 18px;
+    display: inline-block;
+    background-color: dimgrey;
+    border-radius: 10px;
+}
+
+#calc2 {
+    display: none;
+}
+
+.buttonDiv button {
+    width: 100px;
+    margin-top: 5px;
+    
+}
+
+.smallerButtonDiv button {
+    width: 50px;
+    margin-top: 5px;
+}
+
+#zoomOutY1, #zoomOutY2 {
+    margin-right: 100px;
+}
+
+#myModal {
+    color: cornflowerblue;
+}
+
